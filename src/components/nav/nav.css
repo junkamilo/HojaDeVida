@@ -1,0 +1,52 @@
+
+.main-nav {
+    background-color: var(--primary-color); /* Azul oscuro de One Piece */
+    padding: 1em 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; /* Hace que el nav se pegue en la parte superior al hacer scroll */
+    top: 0;
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center; /* Centra los elementos de navegación */
+    gap: 2em; /* Espacio entre los elementos */
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: var(--text-light); /* Texto claro */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    font-family: 'Bebas Neue', sans-serif; /* Misma fuente que los títulos */
+    font-size: 1.3em;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    display: block; /* Para que el padding y el hover abarquen bien */
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background-color: var(--accent-color); /* Naranja de acento al pasar el mouse */
+    color: var(--text-light);
+    transform: translateY(-2px); /* Efecto de "levantamiento" */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* --- Adaptación Responsiva para el Nav --- */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+        align-items: center; /* Centra los ítems apilados */
+        gap: 0.5em; /* Menos espacio entre ítems */
+    }
+
+    .nav-link {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        text-align: center;
+        padding: 0.8em 1em;
+    }
+}

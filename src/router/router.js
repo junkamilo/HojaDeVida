@@ -1,4 +1,7 @@
+import { loadView } from "../helpers/loadview";
 import { inicioController } from "../views/inicio/inicioController";
+import { proyectoJava } from "../views/ProyectoJava/proyectoJavaController";
+import { proyectoWeb } from "../views/ProyectoWeb/proyectoWebController";
 
 const routes = {
     "/":{
@@ -6,10 +9,10 @@ const routes = {
         controlador: inicioController
     },ProyectoJava:{
         "template": "ProyectoJava"/"proyectoJava.html",
-        controlador: inicioController
+        controlador: proyectoJava
     },Proyectoweb:{
-        "template": "inicio"/"inicio.html",
-        controlador: inicioController
+        "template": "ProyectoWeb"/"proyectoWeb.html",
+        controlador: proyectoWeb
     },
 }
 
@@ -28,7 +31,7 @@ export const router = async (app) => {
     app.className = "";
 
     // carga la vista por defecto (inicio)
-    await loadView(app, 'Inicio/inicio.html');
+    await loadView(app, 'inicio/inicio.html');
 
     // ejecuta el controlador de inicio
     inicioController();
