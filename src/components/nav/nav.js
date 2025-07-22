@@ -1,17 +1,18 @@
 import "./nav.css";
+
 export const createNav = () => {
-    //Creamos los elementos del nav
+    // Creamos los elementos del nav
     const nav = document.createElement("nav");
     const ul = document.createElement("ul");
 
     // Array de objetos para las secciones de navegación
     const navItems = [
         { text: "Inicio", href: "#" },
-        { text: "Proyectos Java", href: "#java-projects" },
-        { text: "Proyectos Web", href: "#web-projects" }
+        { text: "Proyectos Java", href: "#ProyectoJava" },
+        { text: "Proyectos Web", href: "#Proyectoweb" }
     ];
 
-    //Agregamos clases y contenido a los elementos creados
+    // Agregamos clases y contenido a los elementos creados
     nav.classList.add("main-nav");
     ul.classList.add("nav-list");
 
@@ -25,19 +26,7 @@ export const createNav = () => {
         a.textContent = item.text;
         a.href = item.href;
 
-        // Añadir evento de click para scroll suave si las secciones existen en la página
-        a.addEventListener("click", (e) => {
-            if (item.href.startsWith("#") && item.href !== "#") {
-                e.preventDefault();
-                const targetId = item.href.substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: "smooth"
-                    });
-                }
-            }
-        });
+        // NO añadimos ningún evento, dejamos que el navegador cambie el hash normalmente
 
         li.appendChild(a);
         ul.appendChild(li);

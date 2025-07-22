@@ -1,0 +1,118 @@
+/* --- Estilos para el Componente RoleAccordion --- */
+
+.role-accordion {
+    background-color: var(--background-light); /* Fondo claro para el panel */
+    border: 1px solid var(--border-color); /* Borde sutil */
+    border-radius: 8px;
+    margin-bottom: 1em; /* Espacio entre paneles */
+    overflow: hidden; /* Asegura que el contenido se recorte si excede el radio de borde */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+    background-color: var(--primary-color); /* Azul oscuro para el encabezado */
+    color: var(--text-light); /* Texto blanco */
+    padding: 1em 1.5em;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #0d47a1; /* Azul un poco más oscuro al pasar el mouse */
+}
+
+.accordion-title {
+    flex-grow: 1; /* Permite que el título ocupe el espacio */
+}
+
+.accordion-icon {
+    margin-left: 1em; /* Espacio entre el título y el icono */
+    transition: transform 0.3s ease; /* Transición para la rotación del icono */
+}
+
+/* Rotar icono cuando el acordeón está expandido */
+.accordion-icon.fa-chevron-up {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 0 1em; /* Padding inicial (cero cuando está colapsado) */
+    background-color: #fefefe; /* Fondo blanco para el contenido */
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+.role-image-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las imágenes se ajusten en varias filas */
+    gap: 1em; /* Espacio entre imágenes */
+    padding: 1em 0;
+    justify-content: center; /* Centrar imágenes */
+}
+
+.role-image {
+    max-width: 150px; /* Tamaño máximo para las imágenes */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+.role-functions-list {
+    list-style: disc; /* Puntos para la lista */
+    list-style-position: inside; /* Puntos dentro del padding */
+    padding-left: 1em; /* Indentación para la lista */
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.role-functions-list li {
+    margin-bottom: 0.5em;
+    display: flex; /* Para alinear icono si lo hubiera */
+    align-items: flex-start;
+}
+
+.role-functions-list li::before {
+    content: "•"; /* Usa un punto Unicode para la lista (puedes cambiarlo a un icono si quieres) */
+    color: var(--accent-color); /* Color del punto */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em; /* Espacio para el punto */
+    margin-right: 0.5em;
+}
+
+/* --- Tema Oscuro para el RoleAccordion (si lo tienes implementado) --- */
+body.dark-theme .role-accordion {
+    background-color: #333;
+    border-color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .accordion-header {
+    background-color: #1a2a40; /* Azul oscuro más apagado */
+    color: #eee;
+}
+
+body.dark-theme .accordion-header:hover {
+    background-color: #2c3e50;
+}
+
+body.dark-theme .accordion-content {
+    background-color: #222;
+    color: #ddd;
+}
+
+body.dark-theme .role-image {
+    border-color: #666;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme .role-functions-list li::before {
+    color: var(--accent-color); /* Mismo color del acento en oscuro */
+}

@@ -1,8 +1,11 @@
+import { createNav } from "../nav/nav";
 import "./main.css";
 
 export const main = () => {
   // ───── CREACIÓN DE ELEMENTOS ─────
-  const main = document.createElement("section"); 
+  const main = document.createElement("section");
+
+  const nav = createNav();
 
   // Contacto
   const contactInfo = document.createElement("section");
@@ -159,7 +162,7 @@ export const main = () => {
   education.append(titleEducation, eduEntry);
 
   // ───── UNIR TODO ─────
-  main.append(contactInfo, summary, experience, skills, education);
+  main.append(nav,contactInfo, summary, experience, skills, education);
   return main;
 };
 

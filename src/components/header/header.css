@@ -4,27 +4,35 @@ header {
     color: var(--text-light);
     padding: 2em 0;
     text-align: center;
-    position: relative; /* Para posicionar el logo-perfil */
+    position: relative;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    /* Para manejar el posicionamiento de los elementos internos */
+    display: flex;
+    flex-direction: column; /* Apila el contenido si es necesario */
+    align-items: center;
+    justify-content: center;
 }
 
 .header-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Por defecto apila el logo, título y toggle */
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 1; /* Asegura que el contenido esté sobre el fondo */
+    z-index: 1;
+    width: 90%; /* Ajusta el ancho para el contenido */
+    max-width: 1000px; /* Ancho máximo para el contenido */
+    margin: 0 auto;
 }
 
 .logo-perfil {
-    width: 180px; /* Tamaño más moderado */
+    width: 180px;
     height: 180px;
     border-radius: 50%;
-    background-color: var(--secondary-color); /* Fondo amarillo para la imagen */
+    background-color: var(--secondary-color);
     border: 5px solid var(--text-light);
-    overflow: hidden; /* Para recortar la imagen si es necesario */
-    margin-bottom: 1em; /* Espacio debajo de la imagen */
+    overflow: hidden;
+    margin-bottom: 1em;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
@@ -38,6 +46,7 @@ header {
 
 .title-section {
     text-align: center;
+    margin-bottom: 1em;
 }
 
 .title-section h1 {
@@ -52,4 +61,43 @@ header {
     font-size: 1.2em;
     font-weight: 300;
     margin-top: 0;
+}
+.header-content .toggle-switch-container {
+    /* Por defecto, si el header-content es column, se centrará debajo */
+    margin-top: 1em; /* Espacio sobre el toggle */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente para que contraste con el header */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5em 1.5em; /* Más padding para que respire */
+    border-radius: 25px; /* Bordes más redondeados */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.header-content .toggle-switch-container .toggle-label-text {
+    color: var(--text-light); /* Texto blanco para que contraste con el header */
+}
+
+/* Media Queries para pantallas más grandes (Desktop) */
+@media (min-width: 769px) {
+    .header-content {
+        flex-direction: row; /* En desktop, pon los elementos en fila */
+        justify-content: space-between; /* Espacia los elementos */
+        align-items: center;
+        padding: 0 2em; /* Padding horizontal */
+    }
+
+    .logo-perfil {
+        margin-bottom: 0; /* Quita el margin-bottom en desktop */
+        margin-right: 2em; /* Espacio a la derecha del logo */
+    }
+
+    .title-section {
+        flex-grow: 1; /* Permite que el título ocupe el espacio restante */
+        text-align: left; /* Alinea el texto a la izquierda */
+        margin-bottom: 0; /* Quita el margin-bottom */
+    }
+
+    .header-content .toggle-switch-container {
+        margin-top: 0; /* Quita el margin-top */
+        margin-left: 2em; /* Espacio a la izquierda del toggle */
+    }
 }

@@ -1,17 +1,17 @@
 import { loadView } from "../helpers/loadview";
 import { inicioController } from "../views/inicio/inicioController";
-import { proyectoJava } from "../views/ProyectoJava/proyectoJavaController";
-import { proyectoWeb } from "../views/ProyectoWeb/proyectoWebController";
+import { proyectoJava } from "../views/ProyectoJava/proyectoJavaController.js";
+import { proyectoWeb } from "../views/ProyectoWeb/proyectoWebController.js";
 
 const routes = {
     "/":{
-        "template": "inicio"/"inicio.html",
+        "template": "inicio/inicio.html",
         controlador: inicioController
     },ProyectoJava:{
-        "template": "ProyectoJava"/"proyectoJava.html",
+        "template": "ProyectoJava/proyectoJava.html",
         controlador: proyectoJava
     },Proyectoweb:{
-        "template": "ProyectoWeb"/"proyectoWeb.html",
+        "template": "ProyectoWeb/proyectoWeb.html",
         controlador: proyectoWeb
     },
 }
