@@ -83,8 +83,10 @@
     border-radius: 8px;
     padding: 1.2em; /* Padding interno de cada card */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra para la card */
-    width: 300px; /* Ancho fijo deseado para cada card */
-    max-width: calc(100% - 2em); /* Asegura que no se desborde en pantallas muy pequeñas, restando el padding */
+    /* Aumentamos el ancho mínimo y máximo para dar más espacio a la imagen */
+    min-width: 280px; /* Ancho mínimo para que no se encoja demasiado */
+    max-width: 380px; /* Ancho máximo para cada card, ajusta según tus preferencias */
+    flex: 1 1 300px; /* Permite que el ítem crezca o se encoja, con un tamaño base de 300px */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -101,9 +103,9 @@
 }
 
 .role-image {
-    max-width: 100%; /* La imagen se ajusta al ancho del role-item */
-    height: 180px; /* Altura fija para las imágenes para uniformidad */
-    object-fit: contain; /* Ajusta la imagen sin recortarla, manteniendo la relación de aspecto */
+    width: 100%; /* La imagen ocupa todo el ancho disponible del .role-item */
+    height: 220px; /* Aumenta esta altura para que la imagen se vea más grande. Ajusta según tus necesidades. */
+    object-fit: contain; /* Sigue siendo crucial para que la imagen se escale sin recortarse */
     border-radius: 4px; /* Bordes ligeramente redondeados para la imagen */
     border: 1px solid var(--border-color); /* Borde para las imágenes */
     background-color: #f9f9f9; /* Fondo ligero para la imagen */
@@ -124,10 +126,9 @@
     }
 
     .role-image {
-        height: 150px; /* Reduce un poco la altura de la imagen en móviles */
+        height: 180px; /* Ajusta la altura de la imagen en móviles si es necesario */
     }
 }
-
 
 /* --- Tema Oscuro para el RoleAccordion (adaptado a la nueva estructura) --- */
 body.dark-theme .role-accordion {
@@ -148,10 +149,6 @@ body.dark-theme .accordion-header:hover {
 body.dark-theme .accordion-content {
     background-color: #222;
     color: #ddd;
-}
-
-body.dark-theme .role-items-container {
-    /* No se necesitan cambios específicos de color de fondo aquí si las cards manejan su propio color */
 }
 
 body.dark-theme .role-item {
