@@ -1,38 +1,42 @@
+// nav.js
 import "./nav.css";
 
 export const createNav = () => {
-    // Creamos los elementos del nav
-    const nav = document.createElement("nav");
-    const ul = document.createElement("ul");
+  const navElement = document.querySelector("nav");
 
-    // Array de objetos para las secciones de navegación
-    const navItems = [
-        { text: "Inicio", href: "#" },
-        { text: "Proyectos Java", href: "#ProyectoJava" },
-        { text: "Proyectos Web", href: "#Proyectoweb" }
-    ];
+  if (!navElement) {
+    console.warn("⚠️ No se encontró el <nav> en el HTML.");
+    return;
+  }
 
-    // Agregamos clases y contenido a los elementos creados
-    nav.classList.add("main-nav");
-    ul.classList.add("nav-list");
+  // Limpia el contenido anterior sin eliminar el <nav>
+  navElement.innerHTML = "";
 
-    navItems.forEach(item => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
+  const ul = document.createElement("ul");
 
-        li.classList.add("nav-item");
-        a.classList.add("nav-link");
+  const navItems = [
+    { text: "Inicio", href: "#" },
+    { text: "Proyectos Java", href: "#ProyectoJava" },
+    { text: "Proyectos Web", href: "#Proyectoweb" }
+  ];
 
-        a.textContent = item.text;
-        a.href = item.href;
+  navElement.classList.add("main-nav");
+  ul.classList.add("nav-list");
 
-        // NO añadimos ningún evento, dejamos que el navegador cambie el hash normalmente
+  navItems.forEach(item => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
 
-        li.appendChild(a);
-        ul.appendChild(li);
-    });
+    li.classList.add("nav-item");
+    a.classList.add("nav-link");
 
-    nav.appendChild(ul);
+    a.textContent = item.text;
+    a.href = item.href;
 
-    return nav;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+
+  navElement.appendChild(ul);
 };
+

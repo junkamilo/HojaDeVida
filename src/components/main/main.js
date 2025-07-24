@@ -5,8 +5,6 @@ export const main = () => {
   // ───── CREACIÓN DE ELEMENTOS ─────
   const main = document.createElement("section");
 
-  const nav = createNav();
-
   // Contacto
   const contactInfo = document.createElement("section");
   const titleInformationContact = document.createElement("h2");
@@ -22,7 +20,6 @@ export const main = () => {
   const titleExperience = document.createElement("h2");
   const jobEntry = document.createElement("div");
   const textRol = document.createElement("h3");
-  const companyDate = document.createElement("p");
   const listDescription = document.createElement("ul");
 
   // Skills
@@ -43,15 +40,13 @@ export const main = () => {
 
   summary.classList.add("summary");
   titleSummary.textContent = "Mi Sueño";
-  pDescription.textContent = "Con la ambición de un futuro Rey Pirata y la determinación inquebrantable para superar cualquier obstáculo, busco nuevos desafíos para expandir mis horizontes y dominar nuevas habilidades. Mi espíritu aventurero y mi capacidad de liderazgo me permiten adaptarme rápidamente y liderar equipos hacia el éxito, siempre con una sonrisa. ¡Seré el Rey de los Desarrolladores!";
+  pDescription.textContent =
+    "Con el sueño de convertirme en un gran programador de software, busco cada día nuevos retos que me permitan crecer, aprender y poner en práctica lo que he venido construyendo. Me apasiona el desarrollo, disfruto resolver problemas y trabajar en equipo, y siempre estoy dispuesto a seguir mejorando mis habilidades. Sé que con disciplina, constancia y actitud puedo llegar lejos en este camino.";
 
   experience.classList.add("experience");
   titleExperience.textContent = "Mi Viaje Profesional";
   jobEntry.classList.add("job-entry");
   textRol.textContent = "Capitán de los Piratas del Sombrero de Paja";
-  companyDate.classList.add("company-date");
-  companyDate.textContent = "Gran Line - Desde 2000";
-
   skills.classList.add("skills");
   tituloSkills.textContent = "Mis Frutas del Diablo (Habilidades)";
 
@@ -60,14 +55,18 @@ export const main = () => {
   eduEntry.classList.add("edu-entry");
   eduTitle.textContent = "Academia de Entrenamiento Pirata";
   universityDate.classList.add("university-date");
-  universityDate.textContent = "Isla Rusukaina - 2 años de formación intensa";
+  universityDate.textContent = "Isla CIMI SENA - 2 años de formación intensa";
 
   // Contacto
   const contactos = [
-    { icon: "icon-mail", label: "Email", value: "junkabeltran@gmail.com" },
+    {
+      icon: "icon-mail",
+      label: "Correo Electronico",
+      value: "juancamilo.campobarrios@gmail.com",
+    },
     { icon: "icon-phone", label: "Teléfono", value: "3013183474" },
-    { icon: "icon-linkedin", label: "LinkedIn", value: "linkedin.com/in/luffy-pirateking" },
     { icon: "icon-location", label: "Ubicación", value: "Santander/Giron" },
+    { icon: "icon-location", label: "GitHub", value: "Junkamilo" },
   ];
   contactos.forEach(({ icon, label, value }) => {
     const li = document.createElement("li");
@@ -83,17 +82,17 @@ export const main = () => {
 
   // Experiencia
   const descriptionItems = [
-    "Liderazgo y gestión de un equipo multidisciplinario para superar desafíos complejos en entornos dinámicos.",
-    "Planificación estratégica y ejecución de misiones de alto riesgo, siempre con resultados exitosos.",
-    "Negociación efectiva con diversas facciones para asegurar recursos y alianzas estratégicas.",
-    "Resolución creativa de problemas bajo presión, manteniendo la moral del equipo.",
+    "Desarrollo de una aplicación web musical utilizando HTML, CSS, JavaScript y consumo de API, enfocada en la visualización de artistas, géneros y canciones.",
+    "Implementación de un diseño modular y responsive para mejorar la experiencia del usuario en diferentes dispositivos.",
+    "Construcción de una aplicación de escritorio en Java (Swing) para digitalizar la toma y gestión de pedidos en un restaurante, adaptada a diferentes roles como administrador, mesero y cocina.",
+    "Integración de base de datos con JDBC, creación de clases DAO, manejo de estados de pedidos y registro detallado de productos, observaciones y porciones.",
   ];
-  descriptionItems.forEach(text => {
+  descriptionItems.forEach((text) => {
     const li = document.createElement("li");
     li.textContent = text;
     listDescription.appendChild(li);
   });
-  jobEntry.append(textRol, companyDate, listDescription);
+  jobEntry.append(textRol,listDescription);
   experience.append(titleExperience, jobEntry);
 
   // Skills
@@ -101,24 +100,48 @@ export const main = () => {
     {
       title: "Desarrollo Web",
       logos: [
-        { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", alt: "HTML5" },
-        { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", alt: "CSS3" },
-        { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", alt: "JavaScript" },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+          alt: "HTML5",
+        },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+          alt: "CSS3",
+        },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+          alt: "JavaScript",
+        },
       ],
     },
     {
       title: "Backend & Bases de Datos",
       logos: [
-        { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", alt: "Java" },
-        { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", alt: "Node.js" },
-        { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", alt: "MySQL" },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+          alt: "Java",
+        },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+          alt: "Node.js",
+        },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+          alt: "MySQL",
+        },
       ],
     },
     {
       title: "Herramientas & Control de Versiones",
       logos: [
-        { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", alt: "Git" },
-        { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", alt: "GitHub" },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+          alt: "Git",
+        },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+          alt: "GitHub",
+        },
       ],
     },
   ];
@@ -146,24 +169,24 @@ export const main = () => {
     skills.appendChild(skillCategory);
   });
 
-  // Educación
-  const eduItems = [
-    "Maestría en Haki de Armamento y Observación.",
-    "Desarrollo de resistencia y fuerza para desafíos a gran escala.",
-    "Estrategias de supervivencia y trabajo en equipo en entornos hostiles.",
-  ];
-  eduItems.forEach(text => {
-    const li = document.createElement("li");
-    li.textContent = text;
-    eduList.appendChild(li);
-  });
+// Educación
+const eduItems = [
+  "Formación en Análisis y Desarrollo de Software en el SENA – CIMI Girón.",
+  "Aprendizaje de lenguajes como Java, HTML, CSS y JavaScript, con enfoque práctico.",
+  "Diseño, desarrollo e implementación de aplicaciones web y de escritorio.",
+  "Uso de bases de datos relacionales y principios de programación orientada a objetos.",
+];
+eduItems.forEach((text) => {
+  const li = document.createElement("li");
+  li.textContent = text;
+  eduList.appendChild(li);
+});
 
-  eduEntry.append(eduTitle, universityDate, eduList);
-  education.append(titleEducation, eduEntry);
+eduEntry.append(eduTitle, universityDate, eduList);
+education.append(titleEducation, eduEntry);
+
 
   // ───── UNIR TODO ─────
-  main.append(nav,contactInfo, summary, experience, skills, education);
+  main.append(contactInfo, summary, experience, skills, education);
   return main;
 };
-
-

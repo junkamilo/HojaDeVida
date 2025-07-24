@@ -7,58 +7,112 @@ import perfiluserArtista1 from '../../assets/MusicWeb/SubirAlbum.png';
 import perfiluserArtista2 from '../../assets/MusicWeb/misPUblicaciones.png';
 import perfiluserArtista3 from '../../assets/MusicWeb/perfilArtistaUsuario.png';
 import Albumfav from '../../assets/MusicWeb/AlbumesFavoritos.png';
+import GenerosFav from '../../assets/MusicWeb/GenerosFavoritos.png';
+import CancionesFav from '../../assets/MusicWeb/CancionesFavoritas.png';
+import ArtistasFav from '../../assets/MusicWeb/ArtistasFavoritos.png';
+import pefilAlbum from '../../assets/MusicWeb/pefilALbum1.png';
+import pefilArtista1 from '../../assets/MusicWeb/perfilArtista1.png';
+import pefilArtista2 from '../../assets/MusicWeb/perfilArtista2.png';
+import pefilgeneroMusical1 from '../../assets/MusicWeb/perfilGenero1.png';
+import pefilgeneroMusical2 from '../../assets/MusicWeb/perfilGenero2.png';
+import { createAppResumenMusica } from "../../components/DescripcionWeb/createAppResumenMusica";
 
 export const proyectoWeb = () =>{
     const app = document.getElementById("app");
     app.innerHTML = "";
 
     const heading = document.createElement("h2");
-    heading.textContent = "Roles en Proyecto Java";
+    heading.textContent = "Aplicativo Web de Musica";
     app.appendChild(heading);
 
-    const Inicio = createRoleAccordion(
-        "Inicio",
-        "Inicio del aplicativo web",
-        [
-            { descripcion: "Inicio del aplicativo web", imagen: inicio },
-        ]
-    );
+    const descripcionMusica = createAppResumenMusica();
 
-    const Usuario = createRoleAccordion(
-        "Usuario",
-        "Usuario en el aplicativo web",
-        [
-            { descripcion: "Inicio del aplicativo web", imagen: perfiluser1 },
-            { descripcion: "Inicio del aplicativo web", imagen: perfiluser2 },
-            { descripcion: "Inicio del aplicativo web", imagen: perfiluser3 },
-        ]
-    );
+const Inicio = createRoleAccordion(
+    "Inicio",
+    "Pantalla principal del aplicativo",
+    [
+        { descripcion: "Vista general del inicio, donde se presentan los álbumes destacados, géneros populares y artistas recomendados.", imagen: inicio },
+    ]
+);
 
-    const UsuarioArtista = createRoleAccordion(
-        "Usuario",
-        "Usuario en el aplicativo web",
-        [
-            { descripcion: "Inicio del aplicativo web", imagen: perfiluserArtista1 },
-            { descripcion: "Inicio del aplicativo web", imagen: perfiluserArtista2 },
-            { descripcion: "Inicio del aplicativo web", imagen: perfiluserArtista3 },
-        ]
-    );
+const Usuario = createRoleAccordion(
+    "Usuario",
+    "Interfaz del usuario registrado",
+    [
+        { descripcion: "Vista del perfil del usuario con su nombre, foto y opciones de configuración.", imagen: perfiluser1 },
+        { descripcion: "Opciones disponibles para el usuario: editar perfil, ver favoritos, cerrar sesión, entre otros.", imagen: perfiluser2 },
+        { descripcion: "Opciones adicionales al convertirse en artista: acceso a gestión de álbumes, canciones y perfil artístico.", imagen: perfiluser3 },
+    ]
+);
 
-        const AlbumFavorito = createRoleAccordion(
-        "Inicio",
-        "Inicio del aplicativo web",
-        [
-            { descripcion: "Inicio del aplicativo web", imagen: Albumfav },
-        ]
-    );
+const UsuarioArtista = createRoleAccordion(
+    "Artista",
+    "Funcionalidades para usuarios artistas",
+    [
+        { descripcion: "Formulario que permite al artista subir un nuevo álbum con portada, nombre y canciones.", imagen: perfiluserArtista1 },
+        { descripcion: "Vista donde el artista puede ver todos los álbumes que ha subido a la plataforma.", imagen: perfiluserArtista2 },
+        { descripcion: "Perfil público del artista, visible para todos los usuarios, mostrando su contenido musical.", imagen: perfiluserArtista3 },
+    ]
+);
 
-            const GeneroFavorito = createRoleAccordion(
-        "Inicio",
-        "Inicio del aplicativo web",
-        [
-            { descripcion: "Inicio del aplicativo web", imagen: Albumfav },
-        ]
-    );
+const AlbumFavorito = createRoleAccordion(
+    "Favoritos",
+    "Álbumes marcados como favoritos",
+    [
+        { descripcion: "Sección donde el usuario puede visualizar todos los álbumes que ha marcado como favoritos.", imagen: Albumfav },
+    ]
+);
 
-    app.append(Inicio,Usuario,UsuarioArtista,AlbumFavorito);
+const GeneroFavorito = createRoleAccordion(
+    "Favoritos",
+    "Géneros musicales favoritos",
+    [
+        { descripcion: "Listado de los géneros favoritos del usuario, basados en su actividad y preferencias.", imagen: GenerosFav },
+    ]
+);
+
+const cancionesFav = createRoleAccordion(
+    "Favoritos",
+    "Canciones favoritas del usuario",
+    [
+        { descripcion: "Sección personalizada donde se muestran todas las canciones guardadas como favoritas.", imagen: CancionesFav },
+    ]
+);
+
+const artistasFav = createRoleAccordion(
+    "Favoritos",
+    "Artistas favoritos",
+    [
+        { descripcion: "Vista con los perfiles de artistas que el usuario ha seguido o marcado como favoritos.", imagen: ArtistasFav },
+    ]
+);
+
+const perfilAlbum = createRoleAccordion(
+    "Exploración",
+    "Perfil de un álbum musical",
+    [
+        { descripcion: "Visualización completa de un álbum: portada, nombre, artista, y lista de canciones que lo componen.", imagen: pefilAlbum },
+    ]
+);
+
+const perfilArtista = createRoleAccordion(
+    "Exploración",
+    "Perfil de un artista",
+    [
+        { descripcion: "Vista general del perfil de un artista incluyendo su nombre, foto y biografía.", imagen: pefilArtista1 },
+        { descripcion: "Perfil extendido del artista mostrando sus álbumes y canciones disponibles para reproducir.", imagen: pefilArtista2 },
+    ]
+);
+
+const perfilGenero = createRoleAccordion(
+    "Exploración",
+    "Perfil de un género musical",
+    [
+        { descripcion: "Pantalla de presentación de un género con su descripción general.", imagen: pefilgeneroMusical1 },
+        { descripcion: "Vista detallada con canciones populares y artistas principales del género seleccionado.", imagen: pefilgeneroMusical2 },
+    ]
+);
+
+
+    app.append(descripcionMusica,Inicio,Usuario,UsuarioArtista,AlbumFavorito,GeneroFavorito,cancionesFav,artistasFav,perfilAlbum,perfilArtista,perfilGenero);
 }

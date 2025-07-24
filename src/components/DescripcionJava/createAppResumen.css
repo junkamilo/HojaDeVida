@@ -1,0 +1,219 @@
+
+.app-resumen {
+    background-color: var(--background-light); /* Fondo suave, coherente con el main */
+    padding: 2.5em; /* Más padding para un look espacioso */
+    border-left: 8px solid var(--secondary-color); /* Borde amarillo más grueso y llamativo */
+    margin-bottom: 3em; /* Espacio debajo del resumen */
+    border-radius: 12px; /* Bordes más redondeados para un toque moderno */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada y elegante */
+    position: relative;
+    overflow: hidden; /* Para el efecto de fondo */
+    transition: all 0.3s ease-in-out; /* Transición para tema oscuro y hover */
+}
+
+/* Efecto sutil de fondo para el resumen */
+.app-resumen::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    background-color: var(--accent-color); /* Un pequeño "punto" de acento */
+    border-radius: 50%;
+    opacity: 0.1;
+    filter: blur(20px);
+    z-index: 0;
+}
+
+.app-resumen:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Sombra más grande al hover */
+    transform: translateY(-5px); /* Ligeramente elevado al hover */
+}
+
+
+.app-resumen h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5em; /* Tamaño grande para el título principal */
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    text-align: center; /* Centrar el título */
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    position: relative;
+    padding-bottom: 0.5em; /* Para la línea decorativa */
+}
+
+/* Línea decorativa debajo del título */
+.app-resumen h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Ancho de la línea */
+    height: 3px;
+    background-color: var(--accent-color); /* Color naranja */
+    border-radius: 2px;
+}
+
+.app-resumen p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em; /* Un poco más grande para mejor legibilidad */
+    line-height: 1.7; /* Espaciado de línea cómodo */
+    color: var(--text-dark);
+    text-align: justify; /* Justificado para un bloque de texto formal */
+    margin-bottom: 1.5em; /* Espacio después de los párrafos */
+}
+
+.app-resumen h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8em; /* Tamaño para el título de la lista */
+    color: var(--primary-color);
+    margin-top: 2em; /* Espacio antes del título de la lista */
+    margin-bottom: 0.8em;
+    text-align: left; /* Alinear a la izquierda */
+    border-bottom: 1px dashed rgba(var(--primary-color-rgb), 0.2); /* Línea sutil debajo del subtítulo */
+    padding-bottom: 0.5em;
+    letter-spacing: 0.5px;
+}
+
+.app-resumen ul {
+    list-style: none; /* Quitar viñetas predeterminadas */
+    padding-left: 0;
+    margin-top: 1em;
+    margin-bottom: 2em; /* Espacio debajo de la lista */
+}
+
+.app-resumen li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.05em; /* Tamaño del texto de la lista */
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 0.8em;
+    position: relative;
+    padding-left: 2.2em; /* Espacio para el icono personalizado */
+}
+
+/* Estilo para los nombres de rol dentro de la lista */
+.app-resumen li .role-name {
+    font-weight: 700; /* Negrita para el nombre del rol */
+    color: var(--accent-color); /* Color de acento para el rol */
+    margin-right: 0.3em; /* Espacio entre el rol y la descripción */
+}
+
+/* Iconos personalizados para la lista (requiere Font Awesome) */
+.app-resumen li::before {
+    content: '\f0a9'; /* Icono de hand-point-right (o puedes usar 'f058' para check-circle) */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900; /* Para el estilo solid */
+    color: var(--secondary-color); /* Icono en color amarillo */
+    position: absolute;
+    left: 0;
+    top: 0.1em; /* Ajuste vertical del icono */
+    font-size: 1.2em;
+}
+
+/* Estilo para la nota final */
+.app-resumen .final-note {
+    font-style: italic;
+    font-size: 0.95em;
+    color: #666;
+    border-top: 1px dashed rgba(var(--primary-color-rgb), 0.1);
+    padding-top: 1em;
+    margin-top: 2em;
+    text-align: center; /* Centrar la nota final */
+}
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .app-resumen {
+        padding: 1.5em; /* Menos padding en móviles */
+        margin-bottom: 2em;
+    }
+
+    .app-resumen h2 {
+        font-size: 2em;
+        margin-bottom: 0.6em;
+    }
+
+    .app-resumen p {
+        font-size: 1em;
+        line-height: 1.5;
+    }
+
+    .app-resumen h3 {
+        font-size: 1.5em;
+        margin-top: 1.5em;
+    }
+
+    .app-resumen li {
+        font-size: 0.95em;
+        padding-left: 2em;
+    }
+
+    .app-resumen li::before {
+        font-size: 1.1em;
+        top: 0.2em;
+    }
+
+    .app-resumen .final-note {
+        font-size: 0.9em;
+        margin-top: 1.5em;
+    }
+}
+
+
+/* --- Tema Oscuro para el Resumen del Proyecto --- */
+.dark-theme .app-resumen {
+    background-color: #383838;
+    border-left-color: var(--secondary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .app-resumen::before {
+    background-color: var(--accent-color);
+    opacity: 0.05;
+}
+
+.dark-theme .app-resumen:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
+.dark-theme .app-resumen h2 {
+    color: #eee;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.1);
+}
+
+.dark-theme .app-resumen h2::after {
+    background-color: var(--accent-color);
+}
+
+.dark-theme .app-resumen p {
+    color: #ddd;
+}
+
+.dark-theme .app-resumen h3 {
+    color: #eee;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .app-resumen li {
+    color: #ccc;
+}
+
+.dark-theme .app-resumen li .role-name {
+    color: var(--secondary-color); /* Resaltar roles en amarillo en dark mode */
+}
+
+.dark-theme .app-resumen li::before {
+    color: var(--accent-color); /* Cambiar el color del icono en dark mode */
+}
+
+.dark-theme .app-resumen .final-note {
+    color: #aaa;
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+

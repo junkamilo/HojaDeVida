@@ -1,3 +1,5 @@
+// createRoleAccordion.js (No necesita cambios funcionales aquí)
+
 import "./createRoleAccordion.css";
 
 /**
@@ -21,6 +23,7 @@ export const createRoleAccordion = (id, title, items = []) => {
     titleSpan.textContent = title;
 
     const toggleIcon = document.createElement("i");
+    // Usamos Font Awesome para el icono
     toggleIcon.classList.add("fas", "fa-chevron-down", "accordion-icon");
 
     const content = document.createElement("div");
@@ -28,6 +31,7 @@ export const createRoleAccordion = (id, title, items = []) => {
     content.style.maxHeight = "0";
     content.style.overflow = "hidden";
     content.style.transition = "max-height 0.4s ease-out, padding 0.4s ease-out";
+
 
     // 2. Llenar contenido con items (texto + imagen)
     if (items.length > 0) {
@@ -47,8 +51,9 @@ export const createRoleAccordion = (id, title, items = []) => {
                 img.src = imagen;
                 img.alt = descripcion;
                 img.classList.add("role-image");
-                itemDiv.appendChild(descP);
-                itemDiv.appendChild(img);
+                // Asegúrate de que la descripción y la imagen estén dentro del mismo itemDiv
+                itemDiv.appendChild(descP); // Descripción primero
+                itemDiv.appendChild(img);   // Luego la imagen
             } else {
                 itemDiv.appendChild(descP);
             }
@@ -66,14 +71,17 @@ export const createRoleAccordion = (id, title, items = []) => {
     header.addEventListener("click", () => {
         const isOpen = content.style.maxHeight !== "0px";
 
+        // Calcula la altura del contenido dinámicamente
+        // Asegúrate de que el padding se aplique y sume al scrollHeight
         if (isOpen) {
             content.style.maxHeight = "0";
-            content.style.padding = "0 1em";
+            content.style.padding = "0 1.5em"; // Restaura el padding inicial (sin padding top/bottom visible)
             toggleIcon.classList.remove("fa-chevron-up");
             toggleIcon.classList.add("fa-chevron-down");
         } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            content.style.padding = "1em";
+            // Establece un padding temporal para calcular el scrollHeight con el padding deseado
+            content.style.padding = "1.5em"; // Aplica el padding deseado
+            content.style.maxHeight = content.scrollHeight + "px"; // Calcula la altura con el padding
             toggleIcon.classList.remove("fa-chevron-down");
             toggleIcon.classList.add("fa-chevron-up");
         }

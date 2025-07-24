@@ -1,30 +1,35 @@
 import "./header.css";
 
-export const header = () =>{
-    //creamos los elementos del header
-    const header = document.createElement("header");
-    const contentheader = document.createElement("div");
-    const logoperfil = document.createElement("div");
-    const img = document.createElement("img");
-    const titlesection = document.createElement("div");
-    const titulonombre = document.createElement("h1");
-    const rol = document.createElement("p");
+export const header = () => {
+  const headerElement = document.querySelector("header");
 
-    //Agregamos las clases a los elementos creados
-    contentheader.classList.add("header-content");
-    logoperfil.classList.add("logo-perfil");
-    img.setAttribute("src","https://example.com/luffy-profile.png");
-    img.setAttribute("alt","Monkey D. Luffy");
-    img.classList.add("profile-img");
-    titlesection.classList.add("title-section");
+  if (!headerElement) {
+    console.error("⚠️ No se encontró el <header> en el HTML.");
+    return;
+  }
 
-    //agregamos texto
-    titulonombre.textContent = "Juan Camilo Beltran Campo";
+  if (headerElement.hasChildNodes()) return; // ya está renderizado
 
-    logoperfil.appendChild(img);
-    titlesection.append(titulonombre, rol);
-    contentheader.append(logoperfil,titlesection);
-    header.appendChild(contentheader);
+  const contentHeader = document.createElement("div");
+  const logoPerfil = document.createElement("div");
+  const imgPerfil = document.createElement("img");
+  const titleSection = document.createElement("div");
+  const tituloNombre = document.createElement("h1");
+  const rol = document.createElement("p");
 
-    return  header;
+  contentHeader.classList.add("header-content");
+  logoPerfil.classList.add("logo-perfil");
+  imgPerfil.setAttribute("src", "https://i.ibb.co/C05P42R/Ellipse-1.png");
+  imgPerfil.setAttribute("alt", "Juan Camilo Beltran Campo - Foto de Perfil");
+  imgPerfil.classList.add("profile-img");
+  titleSection.classList.add("title-section");
+
+  tituloNombre.textContent = "JUAN CAMILO BELTRAN";
+  rol.textContent = "Capitán / Desarrollador Full-Stack";
+
+  logoPerfil.appendChild(imgPerfil);
+  titleSection.append(tituloNombre, rol);
+  contentHeader.append(logoPerfil, titleSection);
+  headerElement.appendChild(contentHeader);
 };
+

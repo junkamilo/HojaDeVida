@@ -1,103 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Bebas+Neue&display=swap');
+
+:root {
+    --primary-color: #0b3075; /* Azul oscuro principal */
+    --secondary-color: #f8de3c; /* Amarillo dorado para acentos */
+    --text-dark: #333;
+    --text-light: #fefefe;
+    --background-light: #f4f7f6; /* Usado en otros componentes, pero bueno tenerlo */
+    --border-color: #ddd; /* Usado en otros componentes */
+    --header-gradient-start: #0b3075; /* Azul más oscuro para el gradiente del header */
+    --header-gradient-end: #1a4a9c; /* Azul un poco más claro para el gradiente */
+}
+
 header {
     width: 100%;
-    background: linear-gradient(to right, var(--primary-color), #0e4b9c); /* Gradiente de azul */
+    background: linear-gradient(to right, var(--header-gradient-start), var(--header-gradient-end));
     color: var(--text-light);
-    padding: 2em 0;
-    text-align: center;
+    padding: 3.5em 0; 
     position: relative;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    /* Para manejar el posicionamiento de los elementos internos */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
     display: flex;
-    flex-direction: column; /* Apila el contenido si es necesario */
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    transform: skewY(-2deg);
+    transform-origin: top left;
+    margin-bottom: 2em;
+}
+
+header > .header-content {
+    transform: skewY(2deg);
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    z-index: 0;
+    pointer-events: none; 
 }
 
 .header-content {
     display: flex;
-    flex-direction: column; /* Por defecto apila el logo, título y toggle */
+    flex-direction: column; /* Por defecto, logo y texto apilados para móviles */
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 1;
-    width: 90%; /* Ajusta el ancho para el contenido */
-    max-width: 1000px; /* Ancho máximo para el contenido */
-    margin: 0 auto;
+    z-index: 1; /* Asegura que el contenido esté sobre el pseudo-elemento de fondo */
+    width: 90%; /* Ancho general del contenido */
+    max-width: 1200px; /* Ancho máximo en pantallas grandes */
+    margin: 0 auto; /* Centrar el contenido */
+    text-align: center; /* Centrar texto y elementos para móviles */
 }
 
+/* --- Logo y Foto de Perfil --- */
 .logo-perfil {
-    width: 180px;
+    width: 180px; /* Tamaño del círculo de perfil */
     height: 180px;
-    border-radius: 50%;
-    background-color: var(--secondary-color);
-    border: 5px solid var(--text-light);
+    border-radius: 50%; /* Círculo perfecto */
+    background-color: var(--secondary-color); /* Fondo amarillo dorado */
+    border: 7px solid var(--text-light); /* Borde blanco grueso y llamativo */
     overflow: hidden;
-    margin-bottom: 1em;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    margin-bottom: 1.8em; /* Espacio debajo del logo en móvil */
+    /* Sombra más profunda para el círculo de perfil */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.45), inset 0 0 10px rgba(255, 255, 255, 0.2); /* Sombra exterior e interior */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease; /* Transición suave para hover */
+}
+
+.logo-perfil:hover {
+    transform: scale(1.08) rotate(2deg); /* Ligeramente más grande y rotado al pasar el mouse */
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.3); /* Sombra aún más profunda */
 }
 
 .logo-perfil .profile-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra el círculo */
-    object-position: center; /* Centra la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el círculo sin deformarse */
+    object-position: center; /* Centra la imagen dentro del círculo */
     display: block;
 }
 
+/* --- Sección de Título (Nombre y Rol) --- */
 .title-section {
-    text-align: center;
-    margin-bottom: 1em;
+    text-align: center; /* Centrado por defecto */
+    margin-bottom: 0; /* No se necesita margen extra, el padding del header lo maneja */
 }
 
 .title-section h1 {
+    font-family: 'Bebas Neue', sans-serif; /* Fuente impactante para el nombre */
     color: var(--text-light);
-    font-size: 3.5em;
-    margin-bottom: 0.1em;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 4.8em; /* Tamaño de fuente grande para el nombre */
+    margin-bottom: 0.05em; /* Margen muy pequeño debajo del nombre */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); /* Sombra de texto más dramática */
+    letter-spacing: 2.5px; /* Más espaciado entre letras para un look premium */
+    line-height: 1.1; /* Asegura un buen espaciado de línea */
 }
 
 .title-section p {
-    color: var(--secondary-color);
-    font-size: 1.2em;
-    font-weight: 300;
-    margin-top: 0;
-}
-.header-content .toggle-switch-container {
-    /* Por defecto, si el header-content es column, se centrará debajo */
-    margin-top: 1em; /* Espacio sobre el toggle */
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente para que contraste con el header */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 0.5em 1.5em; /* Más padding para que respire */
-    border-radius: 25px; /* Bordes más redondeados */
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    font-family: 'Roboto', sans-serif; /* Fuente limpia para el rol */
+    color: var(--secondary-color); /* Rol en color de acento amarillo */
+    font-size: 1.8em; /* Tamaño de fuente más grande para el rol */
+    font-weight: 400; /* Peso normal a ligeramente negrita */
+    margin-top: 0.5em; /* Espacio sutil encima del rol */
+    letter-spacing: 1.2px;
+    opacity: 0.95; /* Ligeramente opaco */
 }
 
-.header-content .toggle-switch-container .toggle-label-text {
-    color: var(--text-light); /* Texto blanco para que contraste con el header */
-}
 
-/* Media Queries para pantallas más grandes (Desktop) */
+/* --- Media Queries para pantallas más grandes (Desktop) --- */
 @media (min-width: 769px) {
+    header {
+        padding: 4.5em 0; /* Aún más padding en desktop para un look más expansivo */
+        transform: skewY(-1.5deg); /* Ligeramente menos inclinación en desktop */
+    }
+
+    /* Contrarrestar la inclinación para el contenido en desktop */
+    header > .header-content {
+        transform: skewY(1.5deg);
+    }
+
     .header-content {
-        flex-direction: row; /* En desktop, pon los elementos en fila */
-        justify-content: space-between; /* Espacia los elementos */
+        flex-direction: row; /* Elementos en fila para desktop */
+        justify-content: flex-start; /* Alinear a la izquierda (logo, nombre, rol) */
         align-items: center;
-        padding: 0 2em; /* Padding horizontal */
+        padding: 0 5em; /* Padding horizontal generoso */
+        text-align: left; /* Alinear el texto a la izquierda en desktop */
     }
 
     .logo-perfil {
-        margin-bottom: 0; /* Quita el margin-bottom en desktop */
-        margin-right: 2em; /* Espacio a la derecha del logo */
+        width: 200px; /* Tamaño del círculo aún más grande en desktop */
+        height: 200px;
+        margin-right: 4em; /* Más espacio a la derecha del logo */
+        margin-bottom: 0; /* Eliminar margen inferior en desktop */
     }
 
     .title-section {
         flex-grow: 1; /* Permite que el título ocupe el espacio restante */
-        text-align: left; /* Alinea el texto a la izquierda */
-        margin-bottom: 0; /* Quita el margin-bottom */
+        text-align: left; /* Alinear texto a la izquierda */
     }
 
-    .header-content .toggle-switch-container {
-        margin-top: 0; /* Quita el margin-top */
-        margin-left: 2em; /* Espacio a la izquierda del toggle */
+    .title-section h1 {
+        font-size: 6.5em; /* Tamaño de fuente realmente grande para el nombre en desktop */
+        letter-spacing: 3px;
     }
+
+    .title-section p {
+        font-size: 2.2em; /* Tamaño de fuente más grande para el rol en desktop */
+        letter-spacing: 1.5px;
+    }
+}
+
+/* --- Tema Oscuro para el Header (solo elementos del header) --- */
+/* (Asumiendo que tienes una clase `dark-theme` en el `body` o un contenedor padre) */
+.dark-theme header {
+    background: linear-gradient(to right, #001f3f, #003a72); /* Tonos más oscuros de azul */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.dark-theme header::before {
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+}
+
+.dark-theme .logo-perfil {
+    border-color: #777; /* Borde más oscuro en dark mode */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .logo-perfil:hover {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .title-section h1 {
+    color: #f0f0f0;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.dark-theme .title-section p {
+    color: var(--secondary-color);
 }
