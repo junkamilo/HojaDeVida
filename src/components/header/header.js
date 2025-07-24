@@ -1,3 +1,4 @@
+import FotoPerfil from '../../assets/fotoPerfil/fotoPerfil.jpeg';
 import "./header.css";
 
 export const header = () => {
@@ -19,13 +20,13 @@ export const header = () => {
 
   contentHeader.classList.add("header-content");
   logoPerfil.classList.add("logo-perfil");
-  imgPerfil.setAttribute("src", "https://i.ibb.co/C05P42R/Ellipse-1.png");
+  imgPerfil.setAttribute("src", FotoPerfil);
   imgPerfil.setAttribute("alt", "Juan Camilo Beltran Campo - Foto de Perfil");
   imgPerfil.classList.add("profile-img");
   titleSection.classList.add("title-section");
 
   tituloNombre.textContent = "JUAN CAMILO BELTRAN";
-  rol.textContent = "Capitán / Desarrollador Full-Stack";
+  rol.textContent = "Capitán / Desarrollador Junior en Formación";
 
   logoPerfil.appendChild(imgPerfil);
   titleSection.append(tituloNombre, rol);

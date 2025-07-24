@@ -1,36 +1,16 @@
-/* main.css */
-
-/* (Asegúrate que las variables CSS y la importación de fuentes
-   estén disponibles globalmente o al inicio de este archivo si es necesario) */
-/*
-:root {
-    --primary-color: #0b3075;
-    --secondary-color: #f8de3c;
-    --accent-color: #e67e22;
-    --text-dark: #333;
-    --text-light: #fefefe;
-    --background-light: #f4f7f6;
-    --border-color: #ddd;
-}
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Bebas+Neue&display=swap');
-*/
-
-
-/* Main Content Wrapper */
 main {
     width: 90%;
-    max-width: 1000px; /* Un poco más ancho para más espacio */
-    margin: 3em auto 4em auto; /* Más margen superior e inferior para separación del header/footer */
+    max-width: 1000px;
+    margin: 3em auto 4em auto;
     background-color: var(--text-light);
-    padding: 3em; /* Más padding interno para "aire" */
-    border-radius: 12px; /* Bordes más redondeados */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra más profunda y elegante */
+    padding: 3em;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     flex-grow: 1;
     position: relative;
-    z-index: 1; /* Asegura que esté sobre cualquier posible fondo del body */
+    z-index: 1;
 }
 
-/* Efecto de patrón de fondo sutil en main (opcional) */
 main::before {
     content: '';
     position: absolute;
@@ -43,19 +23,17 @@ main::before {
         radial-gradient(circle at 90% 80%, rgba(var(--secondary-color-rgb), 0.02) 0%, transparent 40%);
     z-index: -1;
     pointer-events: none;
-    border-radius: inherit; /* Hereda el border-radius del main */
+    border-radius: inherit;
 }
 
-
-/* Títulos de Sección */
 h2 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8em; /* Tamaño más grande para los títulos de sección */
+    font-size: 2.8em;
     color: var(--primary-color);
-    text-align: center; /* Centrar títulos */
-    margin-bottom: 1.2em; /* Más espacio debajo del título */
+    text-align: center;
+    margin-bottom: 1.2em;
     position: relative;
-    padding-bottom: 0.5em; /* Espacio para el subrayado animado */
+    padding-bottom: 0.5em;
     letter-spacing: 1px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
@@ -66,48 +44,45 @@ h2::after {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 60px; /* Ancho del subrayado */
-    height: 3px; /* Grosor del subrayado */
-    background-color: var(--secondary-color); /* Color de acento para el subrayado */
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
     border-radius: 2px;
-    transition: width 0.3s ease, background-color 0.3s ease; /* Transición para el hover */
+    transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 h2:hover::after {
-    width: 100px; /* Se expande al pasar el mouse */
-    background-color: var(--accent-color); /* Cambia de color al pasar el mouse */
+    width: 100px;
+    background-color: var(--accent-color);
 }
 
-
-/* Separadores de Sección */
 section {
-    margin-bottom: 3em; /* Más espacio entre secciones */
-    padding-bottom: 1.5em; /* Más padding para el contenido antes del borde */
-    border-bottom: 1px dashed rgba(var(--primary-color-rgb), 0.3); /* Guion más sutil y del color principal */
-    transition: border-color 0.3s ease; /* Transición para tema oscuro */
+    margin-bottom: 3em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px dashed rgba(var(--primary-color-rgb), 0.3);
+    transition: border-color 0.3s ease;
 }
 
 section:last-child {
-    border-bottom: none; /* Eliminar borde del último elemento */
+    border-bottom: none;
 }
 
-/* --- CONTACT INFO --- */
 .contact-info {
-    text-align: center; /* Centrar toda la sección de contacto */
+    text-align: center;
 }
 
 .contact-info ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centrar los ítems de contacto */
+    justify-content: center;
     padding-left: 0;
-    list-style: none; /* Quita los puntos de lista por defecto */
+    list-style: none;
     margin-top: 1.5em;
 }
 
 .contact-info li {
-    margin: 0.8em 1.8em; /* Más espacio entre los ítems de contacto */
-    font-size: 1.15em; /* Ligeramente más grande */
+    margin: 0.8em 1.8em;
+    font-size: 1.15em;
     display: flex;
     align-items: center;
     color: var(--text-dark);
@@ -117,52 +92,50 @@ section:last-child {
 }
 
 .contact-info li:hover {
-    color: var(--primary-color); /* Cambia de color al pasar el mouse */
-    transform: translateY(-3px); /* Pequeño desplazamiento */
+    color: var(--primary-color);
+    transform: translateY(-3px);
 }
 
 .contact-info li i {
-    margin-right: 0.7em; /* Más espacio para el icono */
-    color: var(--accent-color); /* Iconos de color de acento */
-    font-size: 1.4em; /* Iconos más grandes */
+    margin-right: 0.7em;
+    color: var(--accent-color);
+    font-size: 1.4em;
     transition: color 0.3s ease;
 }
 
 .contact-info li:hover i {
-    color: var(--secondary-color); /* Cambia el color del icono al pasar el mouse */
+    color: var(--secondary-color);
 }
 
-/* --- SUMMARY (Mi Sueño) --- */
 .summary p {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.15em; /* Ligeramente más grande */
-    line-height: 1.7; /* Mejor espaciado de línea para legibilidad */
-    text-align: justify; /* Texto justificado para un look más formal */
+    font-size: 1.15em;
+    line-height: 1.7;
+    text-align: justify;
     margin: 1em auto;
-    max-width: 800px; /* Limita el ancho del párrafo para mejor legibilidad */
+    max-width: 800px;
     color: var(--text-dark);
-    padding: 0 1em; /* Padding horizontal para que no se pegue a los bordes */
+    padding: 0 1em;
 }
 
-/* --- EXPERIENCE & EDUCATION --- */
 .job-entry, .edu-entry {
-    background-color: var(--background-light); /* Fondo claro para cada entrada */
-    padding: 1.5em 2em; /* Más padding */
-    border-left: 6px solid var(--secondary-color); /* Borde de color más grueso y llamativo */
-    margin-bottom: 1.5em; /* Más espacio entre entradas */
-    border-radius: 8px; /* Bordes más redondeados */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Sombra más definida */
+    background-color: var(--background-light);
+    padding: 1.5em 2em;
+    border-left: 6px solid var(--secondary-color);
+    margin-bottom: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .job-entry:hover, .edu-entry:hover {
-    transform: translateY(-5px); /* Efecto de elevación sutil al pasar el mouse */
+    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .job-entry h3, .edu-entry h3 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8em; /* Títulos de puesto/grado más grandes */
+    font-size: 1.8em;
     color: var(--primary-color);
     margin-bottom: 0.3em;
     letter-spacing: 0.5px;
@@ -171,94 +144,86 @@ section:last-child {
 .company-date, .university-date {
     font-family: 'Roboto', sans-serif;
     font-style: italic;
-    color: #666; /* Un gris neutro para la fecha/compañía */
+    color: #666;
     margin-bottom: 1em;
-    font-size: 1em; /* Tamaño estándar */
+    font-size: 1em;
     font-weight: 300;
 }
 
 .job-entry ul, .edu-entry ul {
-    list-style: none; /* Elimina los puntos por defecto */
+    list-style: none;
     margin-left: 0;
     padding-left: 0;
 }
 
 .job-entry ul li, .edu-entry ul li {
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 0.8em; /* Espacio entre ítems de lista */
+    margin-bottom: 0.8em;
     color: var(--text-dark);
     font-size: 1.05em;
     position: relative;
-    padding-left: 1.8em; /* Espacio para el icono de lista personalizado */
+    padding-left: 1.8em;
 }
 
-/* Icono de lista personalizado */
 .job-entry ul li::before, .edu-entry ul li::before {
-    content: '\f058'; /* Icono de check-circle de Font Awesome. Requiere Font Awesome. */
-    font-family: 'Font Awesome 5 Free'; /* Fuente para Font Awesome */
-    font-weight: 900; /* Para el estilo solid de Font Awesome */
+    content: '\f058';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     position: absolute;
     left: 0;
     top: 0;
-    color: var(--accent-color); /* Color naranja para el icono */
+    color: var(--accent-color);
     font-size: 1.1em;
 }
 
-
-/* --- SKILLS --- */
-.skills h2 {
-    /* Ya estilizado arriba */
-}
-
 .skill-category {
-    margin-bottom: 2em; /* Más espacio entre categorías de skills */
-    text-align: center; /* Centrar el título de la categoría y los logos */
+    margin-bottom: 2em;
+    text-align: center;
 }
 
 .skill-category h3 {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.6em; /* Título de categoría de skill más grande */
+    font-size: 1.6em;
     color: var(--primary-color);
-    margin-bottom: 1em; /* Espacio debajo del título de categoría */
-    font-weight: 700; /* Negrita para el título de categoría */
+    margin-bottom: 1em;
+    font-weight: 700;
 }
 
 .skill-logos {
     display: flex;
     flex-wrap: wrap;
-    gap: 2em; /* Más espacio entre logos */
-    justify-content: center; /* Centrar logos */
+    gap: 2em;
+    justify-content: center;
     align-items: center;
-    background-color: #fcfcfc; /* Fondo ligeramente diferente para la sección de logos */
+    background-color: #fcfcfc;
     padding: 1.5em;
     border-radius: 8px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Sombra interior sutil */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
 }
 
 .skill-logos img {
-    width: 70px; /* Tamaño de los logos más grande para mejor visibilidad */
+    width: 70px;
     height: 70px;
     object-fit: contain;
     transition: transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(80%); /* Iniciar con un poco de escala de grises para un efecto al hover */
+    filter: grayscale(80%);
     opacity: 0.8;
 }
 
 .skill-logos img:hover {
-    transform: scale(1.15) translateY(-5px); /* Efecto de elevación y agrandamiento más pronunciado */
-    filter: grayscale(0%); /* Color completo al pasar el mouse */
+    transform: scale(1.15) translateY(-5px);
+    filter: grayscale(0%);
     opacity: 1;
 }
 
-/* Media Queries para Responsividad */
 @media (max-width: 768px) {
     main {
-        padding: 2em 1.5em; /* Reducir padding en móviles */
+        padding: 2em 1.5em;
         margin: 2em auto;
     }
 
     h2 {
-        font-size: 2.2em; /* Ajustar tamaño de título en móviles */
+        font-size: 2.2em;
         margin-bottom: 1em;
     }
 
@@ -293,15 +258,14 @@ section:last-child {
         height: 50px;
         gap: 1.5em;
     }
+
     .skill-category h3 {
         font-size: 1.4em;
     }
 }
 
-
-/* --- Tema Oscuro para el Main Content --- */
 .dark-theme main {
-    background-color: #2b2b2b; /* Fondo oscuro */
+    background-color: #2b2b2b;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -317,14 +281,15 @@ section:last-child {
 }
 
 .dark-theme h2::after {
-    background-color: var(--secondary-color); /* Mantiene el color de acento */
+    background-color: var(--secondary-color);
 }
+
 .dark-theme h2:hover::after {
-    background-color: var(--accent-color); /* Mantiene el color de acento al hover */
+    background-color: var(--accent-color);
 }
 
 .dark-theme section {
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1); /* Separador más claro y sutil */
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 .dark-theme .contact-info li {
@@ -332,12 +297,13 @@ section:last-child {
 }
 
 .dark-theme .contact-info li:hover {
-    color: var(--secondary-color); /* Destaca al hover */
+    color: var(--secondary-color);
 }
 
 .dark-theme .contact-info li i {
     color: var(--accent-color);
 }
+
 .dark-theme .contact-info li:hover i {
     color: var(--secondary-color);
 }
@@ -347,10 +313,11 @@ section:last-child {
 }
 
 .dark-theme .job-entry, .dark-theme .edu-entry {
-    background-color: #383838; /* Fondo más oscuro para entradas */
-    border-color: var(--secondary-color); /* Borde de color de acento */
+    background-color: #383838;
+    border-color: var(--secondary-color);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+
 .dark-theme .job-entry:hover, .dark-theme .edu-entry:hover {
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
@@ -366,8 +333,9 @@ section:last-child {
 .dark-theme .job-entry ul li, .dark-theme .edu-entry ul li {
     color: #ccc;
 }
+
 .dark-theme .job-entry ul li::before, .dark-theme .edu-entry ul li::before {
-    color: var(--secondary-color); /* Ícono de lista en color de acento */
+    color: var(--secondary-color);
 }
 
 .dark-theme .skill-category h3 {
@@ -380,9 +348,9 @@ section:last-child {
 }
 
 .dark-theme .skill-logos img {
-    filter: grayscale(50%) brightness(0.8); /* Menos escala de grises inicial para dark mode */
+    filter: grayscale(50%) brightness(0.8);
 }
 
 .dark-theme .skill-logos img:hover {
-    filter: grayscale(0%) brightness(1); /* Sin escala de grises al hover */
+    filter: grayscale(0%) brightness(1);
 }

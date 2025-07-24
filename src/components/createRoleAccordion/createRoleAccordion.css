@@ -1,136 +1,120 @@
-/* createRoleAccordion.css */
-
-/* Importar fuentes de Google Fonts (si no está en tu main.css) */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Bebas+Neue&display=swap');
 
-/* Variables CSS para colores (si no está en tu main.css) */
-/* Asegúrate de que estas variables estén definidas en un lugar global
-   como en tu :root en un archivo main.css o estilos generales.
-   Si no, pégalas aquí para que funcionen. */
 :root {
-    --primary-color: #0b3075; /* Azul oscuro */
-    --secondary-color: #f8de3c; /* Amarillo dorado */
-    --accent-color: #e67e22; /* Naranja sutil */
+    --primary-color: #0b3075;
+    --secondary-color: #f8de3c;
+    --accent-color: #e67e22;
     --text-dark: #333;
     --text-light: #fefefe;
     --background-light: #f4f7f6;
     --border-color: #ddd;
-    --card-background: #ffffff; /* Nuevo: Fondo específico para las cards de ítems */
+    --card-background: #ffffff;
 }
 
-/* --- Estilos para el Componente RoleAccordion --- */
-
 .role-accordion {
-    background-color: var(--background-light); /* Fondo claro para el panel */
-    border: 1px solid var(--border-color); /* Borde sutil */
-    border-radius: 12px; /* Bordes más redondeados */
-    margin-bottom: 2em; /* Espacio entre paneles */
-    overflow: hidden; /* Asegura que el contenido se recorte si excede el radio de borde */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada para todo el acordeón */
-    transition: all 0.3s ease-in-out; /* Transición para tema oscuro y hover */
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 2em;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
 .role-accordion:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más grande al hover */
-    /* transform: translateY(-3px); /* Puedes añadir un ligero lift al hover en todo el acordeón */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .accordion-header {
-    background-color: var(--primary-color); /* Azul oscuro para el encabezado */
-    color: var(--text-light); /* Texto blanco */
-    padding: 1.2em 1.8em; /* Más padding para un look más premium */
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1.2em 1.8em;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8em; /* Título del rol más grande */
-    letter-spacing: 1.5px; /* Más espaciado entre letras */
+    font-size: 1.8em;
+    letter-spacing: 1.5px;
     transition: background-color 0.3s ease;
-    border-bottom: 3px solid var(--secondary-color); /* Línea inferior de acento */
+    border-bottom: 3px solid var(--secondary-color);
 }
 
 .accordion-header:hover {
-    background-color: #0d47a1; /* Azul un poco más oscuro al pasar el mouse */
+    background-color: #0d47a1;
 }
 
 .accordion-title {
-    flex-grow: 1; /* Permite que el título ocupe el espacio */
-    margin-right: 1em; /* Espacio para el icono si el título es largo */
+    flex-grow: 1;
+    margin-right: 1em;
 }
 
 .accordion-icon {
-    margin-left: 1em; /* Espacio entre el título y el icono */
-    transition: transform 0.3s ease; /* Transición para la rotación del icono */
-    font-size: 0.8em; /* Tamaño del icono un poco más pequeño respecto al título */
-    color: var(--secondary-color); /* Icono en amarillo para destacar */
+    margin-left: 1em;
+    transition: transform 0.3s ease;
+    font-size: 0.8em;
+    color: var(--secondary-color);
 }
 
-/* Rotar icono cuando el acordeón está expandido */
 .accordion-icon.fa-chevron-up {
     transform: rotate(180deg);
 }
 
 .accordion-content {
-    /* El padding se maneja dinámicamente en JS para la transición */
-    /* Asegúrate que el padding-left/right sea constante y consistente con el JS */
-    padding: 0 1.5em; /* Padding horizontal consistente */
-    background-color: var(--card-background); /* Fondo blanco para el contenido */
+    padding: 0 1.5em;
+    background-color: var(--card-background);
     color: var(--text-dark);
-    /* line-height lo manejaremos en los elementos internos */
 }
 
-/* --- ESTILOS PARA EL CONTENEDOR DE ÍTEMS Y CADA ÍTEM INDIVIDUAL (LAS CARDS) --- */
 .role-items-container {
-    display: grid; /* Usamos CSS Grid para una cuadrícula más robusta */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
-    gap: 2.5em; /* Más espacio uniforme entre las "cards" de ítems */
-    padding: 2em; /* Padding alrededor de la cuadrícula de ítems dentro del acordeón */
-    justify-content: center; /* Centra los ítems horizontalmente cuando no llenan la fila */
-    align-items: stretch; /* Asegura que todas las cards tengan la misma altura */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5em;
+    padding: 2em;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .role-item {
     display: flex;
-    flex-direction: column; /* Apila la descripción y la imagen */
-    align-items: center; /* Centra el contenido horizontalmente dentro de la card */
-    text-align: center; /* Centra el texto de la descripción */
-    background-color: var(--card-background); /* Fondo blanco para cada "card" de ítem */
-    border: 1px solid var(--border-color); /* Borde sutil para la card */
-    border-radius: 10px; /* Bordes ligeramente más redondeados para las cards */
-    padding: 1.5em; /* Más padding interno de cada card */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra elegante para la card */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5em;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; /* Asegura que la imagen no se desborde */
+    overflow: hidden;
 }
 
 .role-item:hover {
-    transform: translateY(-8px); /* Efecto de elevación más pronunciado al pasar el mouse */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Sombra más grande al hacer hover */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .role-description {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.05em; /* Tamaño de fuente para la descripción */
+    font-size: 1.05em;
     color: var(--text-dark);
-    margin-bottom: 1.2em; /* Más espacio entre la descripción y la imagen */
-    font-weight: 400; /* Peso normal */
+    margin-bottom: 1.2em;
+    font-weight: 400;
     line-height: 1.6;
-    flex-grow: 1; /* Permite que la descripción ocupe espacio, empujando la imagen hacia abajo */
+    flex-grow: 1;
 }
 
 .role-image {
-    width: 100%; /* La imagen ocupa todo el ancho disponible del .role-item */
-    height: 250px; /* ¡Aumenta esta altura significativamente para que la imagen se vea grande! */
-    object-fit: contain; /* Sigue siendo crucial para que la imagen se escale sin recortarse */
-    border-radius: 6px; /* Bordes ligeramente redondeados para la imagen */
-    border: 1px solid var(--border-color); /* Borde para las imágenes */
-    background-color: #fcfcfc; /* Fondo ligero para la imagen */
-    padding: 10px; /* Más padding interno si la imagen no ocupa todo el espacio */
-    box-shadow: inset 0 0 8px rgba(0,0,0,0.05); /* Sombra interior sutil para la imagen */
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: #fcfcfc;
+    padding: 10px;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
 }
 
-/* Media Query para pantallas más pequeñas (móviles) */
 @media (max-width: 768px) {
     .role-accordion {
         margin-bottom: 1.5em;
@@ -148,13 +132,13 @@
     }
 
     .role-items-container {
-        grid-template-columns: 1fr; /* Una sola columna en móviles */
-        gap: 1.5em; /* Espacio ajustado para móviles */
+        grid-template-columns: 1fr;
+        gap: 1.5em;
         padding: 1.5em;
     }
 
     .role-item {
-        width: 100%; /* Ocupa todo el ancho en móviles */
+        width: 100%;
         padding: 1em;
         border-radius: 8px;
     }
@@ -165,12 +149,11 @@
     }
 
     .role-image {
-        height: 180px; /* Ajusta la altura de la imagen en móviles si es necesario */
+        height: 180px;
         padding: 8px;
     }
 }
 
-/* --- Tema Oscuro para el RoleAccordion --- */
 body.dark-theme .role-accordion {
     background-color: #333;
     border-color: #555;
@@ -182,7 +165,7 @@ body.dark-theme .role-accordion:hover {
 }
 
 body.dark-theme .accordion-header {
-    background-color: #1a2a40; /* Azul oscuro más apagado */
+    background-color: #1a2a40;
     color: #eee;
     border-bottom-color: var(--secondary-color);
 }
@@ -201,7 +184,7 @@ body.dark-theme .accordion-content {
 }
 
 body.dark-theme .role-item {
-    background-color: #2b2b2b; /* Fondo más oscuro para cada ítem */
+    background-color: #2b2b2b;
     border-color: #444;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }

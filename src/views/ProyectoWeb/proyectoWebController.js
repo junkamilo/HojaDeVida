@@ -27,6 +27,29 @@ export const proyectoWeb = () =>{
 
     const descripcionMusica = createAppResumenMusica();
 
+
+    const githubSection = document.createElement("div");
+    githubSection.classList.add("github-section");
+
+    const githubLink = document.createElement("a");
+    githubLink.href = "https://github.com/junkamilo/MusicApp.git";
+    githubLink.target = "_blank";
+    githubLink.rel = "noopener noreferrer";
+    githubLink.classList.add("github-repo-link");
+
+    const githubIcon = document.createElement("img");
+    githubIcon.src = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg";
+    githubIcon.alt = "GitHub Repository";
+    githubIcon.classList.add("github-repo-icon");
+
+    const githubText = document.createElement("span");
+    githubText.textContent = "Repositorio del Aplicativo";
+    githubText.classList.add("github-repo-text");
+
+    githubLink.appendChild(githubIcon);
+    githubLink.appendChild(githubText);
+    githubSection.appendChild(githubLink);
+
 const Inicio = createRoleAccordion(
     "Inicio",
     "Pantalla principal del aplicativo",
@@ -114,5 +137,5 @@ const perfilGenero = createRoleAccordion(
 );
 
 
-    app.append(descripcionMusica,Inicio,Usuario,UsuarioArtista,AlbumFavorito,GeneroFavorito,cancionesFav,artistasFav,perfilAlbum,perfilArtista,perfilGenero);
+    app.append(descripcionMusica,githubSection,Inicio,Usuario,UsuarioArtista,AlbumFavorito,GeneroFavorito,cancionesFav,artistasFav,perfilAlbum,perfilArtista,perfilGenero);
 }

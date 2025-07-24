@@ -1,18 +1,15 @@
-/* Importar fuentes de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Bebas+Neue&display=swap');
 
-/* Variables CSS para colores */
 :root {
-    --primary-color: #0b3075; /* Azul oscuro, como el mar profundo */
-    --secondary-color: #f8de3c; /* Amarillo dorado, como el oro de los piratas */
-    --accent-color: #e67e22; /* Naranja sutil, para detalles */
+    --primary-color: #0b3075;
+    --secondary-color: #f8de3c;
+    --accent-color: #e67e22;
     --text-dark: #333;
     --text-light: #fefefe;
     --background-light: #f4f7f6;
     --border-color: #ddd;
 }
 
-/* Reset y estilos generales */
 * {
     margin: 0;
     padding: 0;
@@ -45,7 +42,7 @@ h2 {
     margin-bottom: 0.8em;
     border-bottom: 2px solid var(--accent-color);
     padding-bottom: 0.3em;
-    display: inline-block; /* Para que el borde se ajuste al texto */
+    display: inline-block;
 }
 
 h3 {
@@ -66,3 +63,84 @@ ul {
 ul li {
     margin-bottom: 0.5em;
 }
+
+.github-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em auto;
+    padding: 1.5em 2em;
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    transition: all 0.3s ease;
+}
+
+.github-section:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+.github-repo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8em;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.github-repo-link:hover {
+    color: var(--accent-color);
+}
+
+.github-repo-icon {
+    width: 60px;
+    height: auto;
+    margin-right: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.github-repo-link:hover .github-repo-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+@media (max-width: 768px) {
+    .github-section {
+        padding: 1em 1.5em;
+        margin: 1.5em auto;
+        max-width: 90%;
+    }
+
+    .github-repo-link {
+        font-size: 1.4em;
+    }
+
+    .github-repo-icon {
+        width: 45px;
+        margin-right: 0.6em;
+    }
+}
+
+body.dark-theme .github-section {
+    background-color: #333;
+    border-color: #555;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme .github-section:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-theme .github-repo-link {
+    color: var(--text-light);
+}
+
+body.dark-theme .github-repo-link:hover {
+    color: var(--secondary-color);
+}
+

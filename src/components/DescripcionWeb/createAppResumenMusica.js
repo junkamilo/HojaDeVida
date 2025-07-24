@@ -16,7 +16,7 @@ export const createAppResumenMusica = () => {
     const list = document.createElement("ul");
 
     const items = [
-        "🎧 <span class=\"role-name\">Usuario visitante</span>: puede navegar por la plataforma, explorar géneros musicales, ver artistas destacados y canciones populares sin necesidad de autenticarse.",
+        "🎧 <span class=\"role-name\">Usuario visitante</span>: puede navegar por la plataforma, explorar géneros musicales, ver artistas destacados y canciones populares pero primero debera de autenticarse.",
         "🔑 <span class=\"role-name\">Usuario registrado</span>: accede a funcionalidades adicionales como reproducción de canciones, guardar canciones favoritas, editar su perfil y comentar en publicaciones.",
         "🌟 <span class=\"role-name\">Usuario artista</span>: cualquier usuario registrado puede postularse como artista. Una vez aprobado, puede subir sus propias canciones, crear álbumes, personalizar su perfil artístico y gestionar su catálogo musical.",
         "🔎 <span class=\"role-name\">Exploración musical</span>: la plataforma permite buscar canciones, artistas o géneros específicos, y ofrece una sección de tendencias con música actualizada y relevante.",
